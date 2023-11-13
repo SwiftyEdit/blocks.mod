@@ -4,7 +4,13 @@ This SwiftyEdit addon helps you to use complex Bootstrap components without havi
 
 Simply select the desired template (component) and enter your data in the form.
 
-### How to get the contents into your page
+## Add your data
+
+![screenshot-add-data](https://github.com/SwiftyEdit/blocks.mod/assets/5982156/4ece75e3-b5a0-4547-93a8-e9bb460f0300)
+
+## Preview and Copy & Paste the Code
+
+![Bildschirmfoto 2023-11-13 um 15 39 16](https://github.com/SwiftyEdit/blocks.mod/assets/5982156/ca49acf7-1fd4-4cc6-ab08-62152e141633)
 
 You have the choice. Copy the Shortcode and paste it into your page. 
 Or copy the generated Code and paste it into your page it's source code.
