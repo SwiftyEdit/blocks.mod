@@ -160,7 +160,7 @@ if($key == '') {
             $get_file = str_replace("$var_search","$var_replace",$get_file);
         }
 
-        $comment_start = 'no';
+        $comment_start = '';
         $comment_end = '';
         if($blocks_prefs['include_comments'][1] == 1) {
             // show comments in source to copy
