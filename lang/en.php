@@ -3,6 +3,7 @@
 $mod_lang = [
     "nav_start"  => "Overview",
     "nav_blocks"  => "Blocks",
+    "nav_settings"  => "Settings",
     "nav_templates" => "Templates",
     "nav_preferences" => "Preferences",
     "label_choose_tpl" => "Choose a Template ...",

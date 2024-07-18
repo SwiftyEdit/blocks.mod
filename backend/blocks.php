@@ -5,6 +5,15 @@ include_once SE_CONTENT.'/modules/blocks.mod/templates/index.php';
 
 echo '<div class="subHeader">'.$icon['plugin'].' blocks.mod '.$icon['arrow_right_short'].' <small>'.$mod_lang['nav_blocks'].'</small></div>';
 
+$blocks_prefs = blocks_get_preferences();
+
+if($blocks_prefs['preview_bg'][1] == 1) {
+    $preview_bg_class = 'pseudo-transparent';
+} else if($blocks_prefs['preview_bg'][1] == 2) {
+    $preview_bg_class = 'bg-light';
+} else {
+    $preview_bg_class = 'bg-dark';
+}
 
 
 echo '<div class="row">';
@@ -138,7 +147,7 @@ if($key == '') {
     echo '</div>';
     echo '<div class="tab-pane fade" id="preview-tab-pane" role="tabpanel" aria-labelledby="preview-tab" tabindex="0">';
     // data tab
-    echo '<p>Here is your preview</p>';
+    echo '<p class="text-info">The colors in the frontend depend on the selected theme. This preview uses the theme of the backend.</p>';
 
     if(is_array($variables_data)) {
 
@@ -151,9 +160,17 @@ if($key == '') {
             $get_file = str_replace("$var_search","$var_replace",$get_file);
         }
 
+        $comment_start = 'no';
+        $comment_end = '';
+        if($blocks_prefs['include_comments'][1] == 1) {
+            // show comments in source to copy
+            $comment_start = '<!-- made with blocks.mod /// id '.$hash.'  -->'."\r\n";
+            $comment_end = "\r\n".'<!-- end of block /// id '.$hash.'  -->';
+        }
+
 
         echo '<legend>Preview</legend>';
-        echo '<div class="p-3 border-1 rounded pseudo-transparent">';
+        echo '<div class="p-3 border border-info rounded '.$preview_bg_class.'">';
         echo $get_file;
         echo '</div>';
 
@@ -168,7 +185,7 @@ if($key == '') {
         echo '<p>... or copy the entire source code:</p>';
 
         echo '<textarea id="copy_sc_code" class="form-control mb-1">';
-        echo $get_file;
+        echo $comment_start.$get_file.$comment_end;
         echo '</textarea>';
         echo '<button type="button" class="btn btn-primary copy-btn" data-clipboard-target="#copy_sc_code"><i class="bi bi-clipboard"></i> copy</button>';
 

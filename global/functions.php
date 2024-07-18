@@ -1,6 +1,6 @@
 <?php
 
-function blocks_write_prefs($data) {
+function blocks_write_prefs($data): void {
     global $blocks_db;
 
     foreach($data as $key => $val) {
@@ -16,7 +16,7 @@ function blocks_write_prefs($data) {
 
         if($entry['key'] != '') {
 
-            $data = $ratings_db->update("preferences", [
+            $data = $blocks_db->update("preferences", [
                 "value" =>  $val,
             ], [
                 "AND" => [

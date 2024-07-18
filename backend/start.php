@@ -10,7 +10,9 @@ include_once SE_CONTENT.'/modules/blocks.mod/templates/index.php';
 $blocks = blocks_get_entries();
 $cnt_blocks = count($blocks);
 
-echo '<table class="table table-sm">';
+echo '<div class="card p-3">';
+
+echo '<table class="table table-sm table-hover">';
 for($i=0;$i<$cnt_blocks;$i++) {
 
     $this_hash = $blocks[$i]['hash'];
@@ -25,3 +27,5 @@ for($i=0;$i<$cnt_blocks;$i++) {
 }
 
 echo '</table>';
+
+echo '</div>';

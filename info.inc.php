@@ -20,7 +20,7 @@ if(is_file($mod_root.'lang/'.$languagePack.'.php')) {
 
 $mod = [
     "name" => "blocks",
-    "version" => "0.2",
+    "version" => "0.3",
     "author" => "SwiftyEdit Developers",
     "description" => "Build Blocks for Landingpages",
     "database" => SE_CONTENT."/modules/blocks.mod/data/blocks.sqlite3"
@@ -28,5 +28,6 @@ $mod = [
 
 $modnav = [
     ['link' => $mod_lang['nav_start'], 'file' => 'start', 'title' => ''],
-    ['link' => $mod_lang['nav_blocks'], 'file' => 'blocks', 'title' => '']
+    ['link' => $mod_lang['nav_blocks'], 'file' => 'blocks', 'title' => ''],
+    ['link' => $mod_lang['nav_settings'], 'file' => 'settings', 'title' => '']
 ];

@@ -26,6 +26,8 @@ $template = [
             'type' => 'html',
             'text' => 'Text in the card body'
         ],[
+            'section' => 'First Button'
+        ],[
             'placeholder' => 'var_btn1_href',
             'type' => 'text',
             'text' => 'URL/Link for the first Button'
@@ -37,6 +39,8 @@ $template = [
             'placeholder' => 'var_btn1_class',
             'type' => 'text',
             'text' => 'Class for the first Button (btn-primary, btn-secondary, btn-info ...'
+        ],[
+            'section' => 'Second Button'
         ],[
             'placeholder' => 'var_btn2_href',
             'type' => 'text',
