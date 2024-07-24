@@ -12,20 +12,7 @@ $cnt_blocks = count($blocks);
 
 echo '<div class="card p-3">';
 
-echo '<table class="table table-sm table-hover">';
-for($i=0;$i<$cnt_blocks;$i++) {
-
-    $this_hash = $blocks[$i]['hash'];
-    $this_tpl_key = $blocks[$i]['template'];
-
-    echo '<tr>';
-    echo '<td>'.date("Y-m-d H:i", $blocks[$i]['editdate']).'</td>';
-    echo '<td>'.$blocks[$i]['title'].'</td>';
-    echo '<td>'.$templates[$this_tpl_key]['tpl'].'</td>';
-    echo '<td><a class="btn btn-default btn-sm" href="?tn=addons&sub=blocks.mod&a=blocks&hash='.$this_hash.'">'.$icon['edit'].' '.$lang['edit'].'</a></td>';
-    echo '</tr>';
-}
-
-echo '</table>';
+echo '<div id="blocks" hx-post="/content/modules/blocks.mod/backend/ajax/list_blocks.php" hx-trigger="load, change" hx-target="#blocks" hx-include="[name=\'csrf_token\']"></div>';
+echo $hidden_csrf_token;
 
 echo '</div>';

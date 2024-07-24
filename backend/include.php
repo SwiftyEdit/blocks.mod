@@ -1,7 +1,5 @@
 <?php
 
-$key = '';
-
 use Medoo\Medoo;
 if(is_file($mod['database'])) {
     $blocks_db = new Medoo([

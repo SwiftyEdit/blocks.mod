@@ -59,6 +59,7 @@ function blocks_save_data($data) {
 
     $title = $data['title'];
     $tpl_key = $data['key'];
+    $tpl_src = $templates[$tpl_key]['tpl'];
     $tpl_data = json_encode($data['data']);
     $hash = md5(time());
 
@@ -69,7 +70,7 @@ function blocks_save_data($data) {
             "date" =>  time(),
             "editdate" =>  time(),
             "title" =>  $title,
-            "template" => $tpl_key,
+            "template_src" => $tpl_src,
             "contents" => $tpl_data
         ]);
 
@@ -100,6 +101,29 @@ function blocks_update_data($data) {
         ]);
 
     }
+    return $hash;
+}
+
+function blocks_delete_block($hash) {
+    global $blocks_db;
+    $delete = $blocks_db->delete("entries", [
+        "hash" => $hash
+    ]);
+    return $delete->rowCount();
+}
+
+function blocks_change_tpl($data) {
+    global $blocks_db;
+    $hash = $data['hash'];
+    $tpl_src = $data['tpl_src'];
+
+    $blocks_db->update("entries", [
+        "template_src" => $tpl_src,
+        "editdate" =>  time()
+    ],[
+        "hash" => $hash
+    ]);
+
     return $hash;
 }
 
@@ -139,9 +163,9 @@ function print_blocks_mod_entry($string) {
 
         // include the template config file
         include SE_CONTENT.'/modules/blocks.mod/templates/index.php';
-        $tpl_hash = $data['template'];
+        $tpl_src = $data['template_src'];
 
-        $tpl_file_src = SE_CONTENT.'/modules/blocks.mod/templates/'.$templates[$tpl_hash]['tpl'];
+        $tpl_file_src = SE_CONTENT.'/modules/blocks.mod/templates/'.$tpl_src;
         $tpl_file = file_get_contents($tpl_file_src);
 
         $variables_data = json_decode($data['contents'],true);

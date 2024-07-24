@@ -17,5 +17,6 @@ $cols = array(
     "author"  => 'VARCHAR',
     "title"  => 'VARCHAR',
     "template"  => 'VARCHAR',
+    "template_src"  => 'VARCHAR',
     "contents"  => 'VARCHAR'
 );

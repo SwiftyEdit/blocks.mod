@@ -29,24 +29,30 @@ if(isset($_POST) && (isset($_POST['update']))) {
     $hash = blocks_update_data($_POST);
 }
 
+// update template
+if(isset($_POST) && (isset($_POST['tpl_src']))) {
+    $hash = blocks_change_tpl($_POST);
+}
+
 // open an existing entry by $hash
-if(isset($_GET['hash'])) {
-    $hash = $_GET['hash'];
+if(isset($_POST['hash'])) {
+    $hash = $_POST['hash'];
 }
 
 if(isset($hash)) {
-    // get data from databese by hash
+    // get data from database by hash
     $get_data = blocks_get_data($hash);
-    $key = $get_data['template'];
+    $get_tpl = $get_data['template_src'];
     $variables_data = json_decode($get_data['contents'],true);
 }
 
 // key of $templates
 if(isset($_REQUEST['key'])) {
-    $key = $_REQUEST['key'];
+    $key = (int) $_REQUEST['key'];
+    $get_tpl = $templates[$key]['tpl'];
 }
 
-if($key == '') {
+if($get_tpl == '') {
     echo '<div class="alert alert-info">'.$mod_lang['msg_choose_tpl_first'].'</div>';
 } else {
 
@@ -68,7 +74,25 @@ if($key == '') {
     echo '<div class="tab-content" id="myTabContent">';
     echo '<div class="tab-pane fade show active" id="data-tab-pane" role="tabpanel" aria-labelledby="data-tab" tabindex="0">';
     // data tab
-    echo '<p>Input your data for the template <code>'.$templates[$key]['tpl'].'</code></p>';
+
+    // switch template
+    if(is_array($get_data)) {
+    echo '<form action="?tn=addons&sub=blocks.mod&a=blocks" method="POST">';
+    echo '<label class="form-label" for="change_tpl">Switch Template</label>';
+    echo '<select name="tpl_src" class="form-control" id="change_tpl" onchange="this.form.submit()">';
+    echo '<option value="null">Select a template ...</option>';
+    foreach($templates as $tpls) {
+        $selected = '';
+        if($get_tpl == $tpls['tpl']) {
+            $selected = ' selected';
+        }
+        echo '<option value="'.$tpls['tpl'].'" '.$selected.'>'.$tpls['tpl'].'</option>';
+    }
+    echo '</select>';
+    echo $hidden_csrf_token;
+    echo '<input type="hidden" name="hash" value="'.$hash.'">';
+    echo '</form>';
+    }
 
     // build the form from $templates[$key]['variables']
 
@@ -78,6 +102,7 @@ if($key == '') {
     echo '<label class="form-label">Title</label>';
     echo '<input type="text" name="title" value="'.$get_data['title'].'" class="form-control">';
     echo '</div><hr>';
+    $key = array_search($get_tpl, array_column($templates, 'tpl'));
 
     foreach($templates[$key]['variables'] as $form) {
 

@@ -3,7 +3,7 @@
 /**
  * blocks.mod - global inject file
  *
- * @var array $page_contents swiftyedit variable
+ * @var array $page_contents SwiftyEdit variable
  */
 
 use Medoo\Medoo;

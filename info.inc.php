@@ -20,7 +20,7 @@ if(is_file($mod_root.'lang/'.$languagePack.'.php')) {
 
 $mod = [
     "name" => "blocks",
-    "version" => "0.3",
+    "version" => "0.4",
     "author" => "SwiftyEdit Developers",
     "description" => "Build Blocks for Landingpages",
     "database" => SE_CONTENT."/modules/blocks.mod/data/blocks.sqlite3"
