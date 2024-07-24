@@ -2,7 +2,7 @@
 
 $mod_lang = [
     "nav_start"  => "Übersicht",
-    "nav_blocks"  => "Blöcke",
+    "nav_blocks"  => "Editor",
     "nav_settings"  => "Einstellungen",
     "nav_templates" => "Templates",
     "nav_preferences" => "Einstellungen",

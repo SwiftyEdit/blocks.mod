@@ -5,6 +5,8 @@
     <div class="card-body">
         <h5 class="card-title">{var_title_one}</h5>
         <p class="card-text">{var_text_one}</p>
+    </div>
+    <div class="card-footer">
         <a href="{var_btn1_href}" class="{var_btn1_class}">{var_btn1_text}</a>
     </div>
 </div>
@@ -15,6 +17,8 @@
             <div class="card-body">
                 <h5 class="card-title">{var_title_two}</h5>
                 <p class="card-text">{var_text_two}</p>
+            </div>
+            <div class="card-footer">
                 <a href="{var_btn2_href}" class="{var_btn2_class}">{var_btn2_text}</a>
             </div>
         </div>
@@ -25,6 +29,8 @@
             <div class="card-body">
                 <h5 class="card-title">{var_title_three}</h5>
                 <p class="card-text">{var_text_three}</p>
+            </div>
+            <div class="card-footer">
                 <a href="{var_btn3_href}" class="{var_btn3_class}">{var_btn3_text}</a>
             </div>
         </div>

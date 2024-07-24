@@ -250,7 +250,7 @@ if($get_tpl == '') {
 
         echo '<p>... or copy the entire source code:</p>';
 
-        echo '<textarea id="copy_sc_code" class="form-control mb-1">';
+        echo '<textarea id="copy_sc_code" rows="12" class="form-control mb-1">';
         echo $comment_start.$get_file.$comment_end;
         echo '</textarea>';
         echo '<button type="button" class="btn btn-primary copy-btn" data-clipboard-target="#copy_sc_code"><i class="bi bi-clipboard"></i> copy</button>';
