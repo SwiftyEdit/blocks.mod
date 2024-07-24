@@ -16,8 +16,7 @@ if($blocks_prefs['preview_bg'][1] == 1) {
 }
 
 
-echo '<div class="row">';
-echo '<div class="col">';
+
 
 // save new entry
 if(isset($_POST) && (isset($_POST['save']))) {
@@ -54,6 +53,39 @@ if(isset($_REQUEST['key'])) {
 
 if($get_tpl == '') {
     echo '<div class="alert alert-info">'.$mod_lang['msg_choose_tpl_first'].'</div>';
+
+    echo '<div class="row g-3">';
+    foreach ($templates as $k => $v) {
+
+        $img = basename($templates[$k]['tpl'], '.tpl') . '.png';
+
+        $active = '';
+        if ($key == $k) {
+            $active = 'active';
+        }
+        echo '<div class="col-md-3">';
+        echo '<div class="card h-100 p-1">';
+        echo '<div class="row g-0">';
+        echo '<div class="col-md-3">';
+        echo '<img src="/content/modules/blocks.mod/templates/bootstrap/' . $img . '" class="img-fluid rounded">';
+        echo '</div>';
+        echo '<div class="col-md-9">';
+        echo '<div class="card-body">';
+        echo '<h5 class="card-title">' . $templates[$k]['name'] . '</h5>';
+
+        echo '<p><small>' . $templates[$k]['title'] . '</small></p>';
+
+        echo '<a class="stretched-link ' . $active . '" href="?tn=addons&sub=blocks.mod&a=blocks&key=' . $k . '" title="' . $templates[$k]['title'] . '">';
+        echo '</a>';
+        echo '</div>';
+        echo '</div>';
+        echo '</div>';
+        echo '</div>';
+        echo '</div>';
+    }
+    echo '</div>';
+
+
 } else {
 
     // the relevant data is now in $templates[$key]
@@ -120,14 +152,23 @@ if($get_tpl == '') {
         }
 
         echo '<div class="mb-3">';
-        echo '<label class="form-label">'.$form['text'].'</label>';
+
+        /* translate form labels, if exists */
+        $tpl_label = $form['text'];
+        preg_match("/\{(.*?)\}/", $tpl_label, $matches);
+        if(array_key_exists($matches[1], $mod_lang)) {
+            $tpl_translation = $mod_lang[$matches[1]];
+            $tpl_label = str_replace('{'.$matches[1].'}', $tpl_translation, $tpl_label);
+        }
+
+        echo '<label class="form-label">'.$tpl_label.'</label>';
 
         if($form['type'] == 'text') {
             echo '<input type="text" name="data['.$var_name.']" value="'.$value.'" class="form-control">';
         }
 
         if($form['type'] == 'html') {
-            echo '<textarea name="data['.$var_name.']" class="form-control">'.$value.'</textarea>';
+            echo '<textarea name="data['.$var_name.']" rows="8" class="form-control">'.$value.'</textarea>';
         }
 
         if($form['type'] == 'img_select') {
@@ -226,37 +267,3 @@ if($get_tpl == '') {
 
 
 }
-
-echo '</div>';
-
-    echo '<div class="col-md-3">';
-
-    echo '<div class="list-group">';
-    foreach ($templates as $k => $v) {
-
-        $img = basename($templates[$k]['tpl'], '.tpl') . '.png';
-
-        $active = '';
-        if ($key == $k) {
-            $active = 'active';
-        }
-
-        echo '<a class="list-group-item list-group-item-action ' . $active . '" href="?tn=addons&sub=blocks.mod&a=blocks&key=' . $k . '" title="' . $templates[$k]['title'] . '">';
-        echo '<strong>' . $templates[$k]['name'] . '</strong>';
-        echo '<div class="hstack gap-3 w-100">';
-        echo '<div class="w-25">';
-        echo '<img src="/content/modules/blocks.mod/templates/bootstrap/' . $img . '" class="img-fluid rounded-start" alt="...">';
-        echo '</div>';
-        echo '<div class="w-75">';
-        echo '<p><small>' . $templates[$k]['title'] . '</small></p>';
-        echo '</div>';
-        echo '</div>';
-
-        echo '</a>';
-
-    }
-
-    echo '</div>';
-    echo '</div>';
-
-echo '</div>';

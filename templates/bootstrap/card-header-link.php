@@ -8,23 +8,23 @@ $template = [
         [
             'placeholder' => 'var_header_text',
             'type' => 'text',
-            'text' => 'Text for the header'
+            'text' => '{tpl_label_title} <code>.card-header</code>'
         ],[
             'placeholder' => 'var_title',
             'type' => 'text',
-            'text' => 'Title in the card body'
+            'text' => '{tpl_label_title} <code>.card-body</code>'
         ],[
             'placeholder' => 'var_text',
             'type' => 'html',
-            'text' => 'Text in the card body'
+            'text' => '{tpl_label_content} <code>.card-body</code>'
         ],[
             'placeholder' => 'var_href',
             'type' => 'text',
-            'text' => 'URL for the Button'
+            'text' => 'URL (Button)'
         ],[
             'placeholder' => 'var_btn_text',
             'type' => 'text',
-            'text' => 'Text for the Button'
+            'text' => 'Text (Button)'
         ]
     ]
 ];

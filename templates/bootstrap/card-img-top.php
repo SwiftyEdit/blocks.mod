@@ -8,19 +8,19 @@ $template = [
         [
             'placeholder' => 'var_img_src',
             'type' => 'img_select',
-            'text' => 'Select an image'
+            'text' => '{tpl_label_select_img}'
         ],[
             'placeholder' => 'var_img_alt',
             'type' => 'text',
-            'text' => 'Alt text for image'
+            'text' => '{tpl_label_img_alt}'
         ],[
             'placeholder' => 'var_title',
             'type' => 'text',
-            'text' => 'Title in the card body'
+            'text' => '{tpl_label_title} <code>.card-body</code>'
         ],[
             'placeholder' => 'var_text',
             'type' => 'html',
-            'text' => 'Text in the card body'
+            'text' => '{tpl_label_content} <code>.card-body</code>'
         ]
     ]
 ];

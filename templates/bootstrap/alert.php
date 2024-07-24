@@ -9,11 +9,11 @@ $template = [
             [
                 'placeholder' => 'var_classes',
                 'type' => 'text',
-                'text' => 'class name f.e. alert-info'
+                'text' => '{tpl_label_class_name} f.e. alert-info'
             ],[
                 'placeholder' => 'var_text',
                 'type' => 'html',
-                'text' => 'alert content'
+                'text' => '{tpl_label_content}'
             ]
         ]
 

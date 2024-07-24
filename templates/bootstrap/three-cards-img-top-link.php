@@ -5,95 +5,95 @@ $template = [
     'title' => 'Bootstrap card with image on top and text',
     'variables' => [
         [
-            'section' => 'Data for the first Card'
+            'section' => '.card #1'
         ],[
             'placeholder' => 'var_img_src_one',
             'type' => 'img_select',
-            'text' => 'Select an image'
+            'text' => '{tpl_label_select_img}'
         ],[
             'placeholder' => 'var_img_alt_one',
             'type' => 'text',
-            'text' => 'Alt text for image'
+            'text' => '{tpl_label_img_alt}'
         ],[
             'placeholder' => 'var_title_one',
             'type' => 'text',
-            'text' => 'Title in the card body'
+            'text' => '{tpl_label_title} <code>.card-body</code>'
         ],[
             'placeholder' => 'var_text_one',
             'type' => 'html',
-            'text' => 'Text in the card body'
+            'text' => '{tpl_label_content} <code>.card-body</code>'
         ],[
             'placeholder' => 'var_btn1_href',
             'type' => 'text',
-            'text' => 'URL/Link for the first Button'
+            'text' => 'URL/Link'
         ],[
             'placeholder' => 'var_btn1_text',
             'type' => 'text',
-            'text' => 'Text for the first Button'
+            'text' => '{tpl_label_text} (button)'
         ],[
             'placeholder' => 'var_btn1_class',
             'type' => 'text',
-            'text' => 'Class for the first Button (btn-primary, btn-secondary, btn-info ...'
+            'text' => '{tpl_label_class_name}'
         ],[
-            'section' => 'Here starts the second Card'
+            'section' => '.card #2'
         ],[
             'placeholder' => 'var_img_src_two',
             'type' => 'img_select',
-            'text' => 'Select an image'
+            'text' => '{tpl_label_select_img}'
         ],[
             'placeholder' => 'var_img_alt_two',
             'type' => 'text',
-            'text' => 'Alt text for image'
+            'text' => '{tpl_label_img_alt}'
         ],[
             'placeholder' => 'var_title_two',
             'type' => 'text',
-            'text' => 'Title in the card body'
+            'text' => '{tpl_label_title} <code>.card-body</code>'
         ],[
             'placeholder' => 'var_text_two',
             'type' => 'html',
-            'text' => 'Text in the card body'
+            'text' => '{tpl_label_content} <code>.card-body</code>'
         ],[
             'placeholder' => 'var_btn2_href',
             'type' => 'text',
-            'text' => 'URL/Link for the first Button'
+            'text' => 'URL/Link'
         ],[
             'placeholder' => 'var_btn2_text',
             'type' => 'text',
-            'text' => 'Text for the first Button'
+            'text' => '{tpl_label_text} (button)'
         ],[
             'placeholder' => 'var_btn2_class',
             'type' => 'text',
-            'text' => 'Class for the first Button (btn-primary, btn-secondary, btn-info ...'
+            'text' => '{tpl_label_class_name}'
         ],[
-            'section' => 'And the last one'
+            'section' => '.card #3'
         ],[
             'placeholder' => 'var_img_src_three',
             'type' => 'img_select',
-            'text' => 'Select an image'
+            'text' => '{tpl_label_select_img}'
         ],[
             'placeholder' => 'var_img_alt_three',
             'type' => 'text',
-            'text' => 'Alt text for image'
+            'text' => '{tpl_label_img_alt}'
         ],[
             'placeholder' => 'var_title_three',
             'type' => 'text',
-            'text' => 'Title in the card body'
+            'text' => '{tpl_label_title} <code>.card-body</code>'
         ],[
             'placeholder' => 'var_text_three',
             'type' => 'html',
-            'text' => 'Text in the card body'
+            'text' => '{tpl_label_content} <code>.card-body</code>'
         ],[
             'placeholder' => 'var_btn3_href',
             'type' => 'text',
-            'text' => 'URL/Link for the first Button'
+            'text' => 'URL/Link'
         ],[
             'placeholder' => 'var_btn3_text',
             'type' => 'text',
-            'text' => 'Text for the first Button'
+            'text' => '{tpl_label_text} (button)'
         ],[
             'placeholder' => 'var_btn3_class',
             'type' => 'text',
-            'text' => 'Class for the first Button (btn-primary, btn-secondary, btn-info ...'
+            'text' => '{tpl_label_class_name}'
         ]
     ]
 ];
